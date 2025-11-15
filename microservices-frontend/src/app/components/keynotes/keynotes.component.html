@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Keynote Speakers</h2>
+
+  <div *ngIf="loading" class="loading">Loading keynotes...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="keynotes-grid">
+    <div *ngFor="let keynote of keynotes" class="keynote-card">
+      <div class="keynote-header">
+        <h3>{{ keynote.prenom }} {{ keynote.nom }}</h3>
+        <span class="fonction">{{ keynote.fonction }}</span>
+      </div>
+      <div class="keynote-body">
+        <p><strong>Email:</strong> {{ keynote.email }}</p>
+        <p><strong>ID:</strong> {{ keynote.id }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !error && keynotes.length === 0" class="no-data">
+    No keynotes found.
+  </div>
+</div>
+

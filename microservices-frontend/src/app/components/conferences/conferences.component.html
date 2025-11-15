@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Conferences</h2>
+
+  <div *ngIf="loading" class="loading">Loading conferences...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="conferences-grid">
+    <div *ngFor="let conference of conferences" class="conference-card">
+      <div class="conference-header">
+        <h3>{{ conference.titre }}</h3>
+        <span class="type" [class.academique]="conference.type === 'ACADEMIQUE'" 
+              [class.commerciale]="conference.type === 'COMMERCIALE'">
+          {{ conference.type }}
+        </span>
+      </div>
+      <div class="conference-body">
+        <p><strong>Date:</strong> {{ conference.date | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Durée:</strong> {{ conference.duree }} minutes</p>
+        <p><strong>Inscrits:</strong> {{ conference.nombreInscrits }}</p>
+        <p><strong>Score:</strong> <span class="stars">{{ getStars(conference.score) }}</span> ({{ conference.score }})</p>
+        <div *ngIf="conference.keynote" class="keynote-info">
+          <p><strong>Keynote:</strong> {{ conference.keynote.prenom }} {{ conference.keynote.nom }}</p>
+          <p class="fonction">{{ conference.keynote.fonction }}</p>
+        </div>
+        <div *ngIf="conference.reviews && conference.reviews.length > 0" class="reviews-count">
+          <p>{{ conference.reviews.length }} review(s)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !error && conferences.length === 0" class="no-data">
+    No conferences found.
+  </div>
+</div>
+
