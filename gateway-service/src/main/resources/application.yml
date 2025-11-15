@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: keynote-service
+          uri: lb://KEYNOTE-SERVICE
+          predicates:
+            - name: Path
+              args:
+                pattern: /api/keynotes/**
+        - id: conference-service
+          uri: lb://CONFERENCE-SERVICE
+          predicates:
+            - name: Path
+              args:
+                pattern: /api/conferences/**
+        - id: conference-reviews
+          uri: lb://CONFERENCE-SERVICE
+          predicates:
+            - name: Path
+              args:
+                pattern: /api/conferences/*/reviews/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
