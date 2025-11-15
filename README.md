@@ -78,6 +78,26 @@ Service de configuration centralisée pour gérer les configurations de tous les
   <img src="screen/image--.png" alt="Config Service" width="800">
 </p>
 
+### Frontend Application
+
+Application Angular 19 avec interface utilisateur moderne pour la gestion des conférences et keynote speakers.
+
+#### Gestion des Keynotes
+
+Liste et gestion des keynote speakers avec opérations CRUD complètes.
+
+<p align="center">
+  <img src="screen/image7.png" alt="Keynotes Management" width="800">
+</p>
+
+#### Gestion des Conférences
+
+Liste et gestion des conférences avec leurs détails et reviews.
+
+<p align="center">
+  <img src="screen/image8.png" alt="Conferences Management" width="800">
+</p>
+
 <p align="center">
   <sub>Built with Spring Boot & Angular - Conference Platform</sub>
 </p>
