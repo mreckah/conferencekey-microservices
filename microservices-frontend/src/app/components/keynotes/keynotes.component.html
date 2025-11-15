@@ -1,5 +1,10 @@
 <div class="container">
-  <h2>Keynote Speakers</h2>
+  <div class="header">
+    <h2>Keynote Speakers</h2>
+    <button class="btn btn-primary" (click)="openAddModal()">
+      <span class="icon">+</span> Add Keynote
+    </button>
+  </div>
 
   <div *ngIf="loading" class="loading">Loading keynotes...</div>
   <div *ngIf="error" class="error">{{ error }}</div>
@@ -14,11 +19,73 @@
         <p><strong>Email:</strong> {{ keynote.email }}</p>
         <p><strong>ID:</strong> {{ keynote.id }}</p>
       </div>
+      <div class="keynote-actions">
+        <button class="btn btn-edit" (click)="openEditModal(keynote)">Edit</button>
+        <button class="btn btn-delete" (click)="deleteKeynote(keynote.id)">Delete</button>
+      </div>
     </div>
   </div>
 
   <div *ngIf="!loading && !error && keynotes.length === 0" class="no-data">
     No keynotes found.
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div *ngIf="showModal" class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ isEditMode ? 'Edit Keynote' : 'Add Keynote' }}</h3>
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+    <form (ngSubmit)="saveKeynote()" #keynoteForm="ngForm">
+      <div class="form-group">
+        <label for="prenom">First Name *</label>
+        <input
+          type="text"
+          id="prenom"
+          name="prenom"
+          [(ngModel)]="currentKeynote.prenom"
+          required
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="nom">Last Name *</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          [(ngModel)]="currentKeynote.nom"
+          required
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="currentKeynote.email"
+          required
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="fonction">Function *</label>
+        <input
+          type="text"
+          id="fonction"
+          name="fonction"
+          [(ngModel)]="currentKeynote.fonction"
+          required
+          class="form-control">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!keynoteForm.form.valid">
+          {{ isEditMode ? 'Update' : 'Create' }}
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 

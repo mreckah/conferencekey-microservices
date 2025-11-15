@@ -11,8 +11,8 @@ export class KeynoteService {
 
   constructor(private http: HttpClient) {}
 
-  getAllKeynotes(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getAllKeynotes(): Observable<Keynote[]> {
+    return this.http.get<Keynote[]>(this.apiUrl);
   }
 
   getKeynoteById(id: number): Observable<Keynote> {

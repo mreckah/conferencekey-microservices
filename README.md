@@ -87,7 +87,7 @@ Application Angular 19 avec interface utilisateur moderne pour la gestion des co
 Liste et gestion des keynote speakers avec opérations CRUD complètes.
 
 <p align="center">
-  <img src="screen/image7.png" alt="Keynotes Management" width="800">
+  <img src="screen/image9.png" alt="Keynotes Management" width="800">
 </p>
 
 #### Gestion des Conférences
@@ -95,7 +95,7 @@ Liste et gestion des keynote speakers avec opérations CRUD complètes.
 Liste et gestion des conférences avec leurs détails et reviews.
 
 <p align="center">
-  <img src="screen/image8.png" alt="Conferences Management" width="800">
+  <img src="screen/image10.png" alt="Conferences Management" width="800">
 </p>
 
 <p align="center">
