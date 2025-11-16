@@ -98,6 +98,21 @@ Liste et gestion des conférences avec leurs détails et reviews.
   <img src="screen/image10.png" alt="Conferences Management" width="800">
 </p>
 
+#### Chatbot Service
+
+This service provides a chatbot for the Conference Platform. It helps users find information about keynote speakers and conferences. Users can ask things like:
+- "Who are the keynote speakers?"
+- "What conferences are available?"
+- "Tell me about the Spring Boot conference"
+The chatbot uses the Deepseek API key to communicate with the backend and fetch relevant information.
+
+<p align="center">
+  <img src="image.png" alt="Chatbot Service" width="800">
+</p>
+<p align="center">
+  <img src="image-1.png" alt="Chatbot Service" width="800">
+</p>
+
 <p align="center">
   <sub>Built with Spring Boot & Angular - Conference Platform</sub>
 </p>
